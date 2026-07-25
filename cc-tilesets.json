@@ -1,0 +1,41 @@
+[
+ {
+  "firstgid": 1,
+  "name": "tileset_first_walls",
+  "image": "cc-assets/tileset_first_walls.png",
+  "imagewidth": 416,
+  "imageheight": 480,
+  "tilewidth": 32,
+  "tileheight": 32,
+  "columns": 13,
+  "tilecount": 195,
+  "margin": 0,
+  "spacing": 0
+ },
+ {
+  "firstgid": 196,
+  "name": "tileset1",
+  "image": "cc-assets/tileset1.png",
+  "imagewidth": 352,
+  "imageheight": 352,
+  "tilewidth": 32,
+  "tileheight": 32,
+  "columns": 11,
+  "tilecount": 121,
+  "margin": 0,
+  "spacing": 0
+ },
+ {
+  "firstgid": 1037,
+  "name": "19_Hospital_32x32",
+  "image": "cc-assets/19_Hospital_32x32.png",
+  "imagewidth": 512,
+  "imageheight": 2496,
+  "tilewidth": 32,
+  "tileheight": 32,
+  "columns": 16,
+  "tilecount": 1248,
+  "margin": 0,
+  "spacing": 0
+ }
+]
