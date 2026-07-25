@@ -38,6 +38,18 @@ const MAP_W = MARGIN * 2 + blockW; // 44
 const teams = JSON.parse(readFileSync(TEAMS_JSON, "utf8")).slice().sort((a, b) => a.team_no - b.team_no);
 const tilesets = JSON.parse(readFileSync(TILESETS_JSON, "utf8"));
 
+// --- furniture GIDs (verified from starter-kit tilesets) + logo atlas ---
+const FURN = { table: 1697, chairUp: 1492, chairDown: 1509, board: 267, plant: 41 };
+const LOGO = JSON.parse(readFileSync(resolve(HERE, "logo-atlas.json"), "utf8"));
+const LOGO_FIRSTGID = 3001; // above all existing gids (max ~2955)
+tilesets.push({ firstgid: LOGO_FIRSTGID, name: "logos", image: "logo-atlas.png",
+  imagewidth: LOGO.cols * LOGO.cell, imageheight: LOGO.rows * LOGO.cell,
+  tilewidth: LOGO.cell, tileheight: LOGO.cell, columns: LOGO.cols,
+  tilecount: LOGO.cols * LOGO.rows, margin: 0, spacing: 0 });
+const furn = new Map();          // "x,y" -> gid  (furniture tile layer)
+const setF = (x, y, g) => furn.set(`${x},${y}`, g);
+const logoObjs = [];             // tile-objects for team logos
+
 // ---------- object builders ----------
 let _oid = 0;
 const oid = () => ++_oid;
@@ -107,12 +119,21 @@ const stage = {};
     const nn = String(t.team_no).padStart(2, "0");
     const yt = t.youtube_id
       ? `https://www.youtube.com/embed/${t.youtube_id}?autoplay=1&mute=1&loop=1&playlist=${t.youtube_id}` : null;
-    add(label(`label-t${nn}`, x, yb, BOOTH_W, `Booth ${nn} · ${t.title || t.team}\n${t.desc || ""}`, 12));
-    if (yt) add(web(`video-t${nn}`, x + 1, yb + 2, 3, 2, yt));
-    else add(label(`novideo-t${nn}`, x + 1, yb + 2, 3, "(video pending)"));
-    if (t.live_url) add(web(`kiosk-t${nn}`, x + 5, yb + 2, 2, 2, t.live_url));
-    else if (t.repo_url) add(web(`repo-t${nn}`, x + 5, yb + 2, 2, 2, t.repo_url));
-    add(jitsi(`qa-t${nn}`, x + 2, yb + 5, 4, 2, `team-${nn}-booth`));
+    add(label(`label-t${nn}`, x, yb, BOOTH_W, `Booth ${nn} · ${t.title || t.team}`, 12));
+    // team logo (64x64 tile-object) on the booth back wall, top-left
+    logoObjs.push({ id: oid(), gid: LOGO_FIRSTGID + i, name: `logo-t${nn}`,
+      x: (x + 1) * TS, y: (yb + 1) * TS + TS * 2, width: TS * 2, height: TS * 2, visible: true, rotation: 0 });
+    // presentation board behind the video zone
+    setF(x + 4, yb + 1, FURN.board); setF(x + 5, yb + 1, FURN.board);
+    if (yt) add(web(`video-t${nn}`, x + 4, yb + 1, 2, 2, yt));
+    else add(label(`novideo-t${nn}`, x + 4, yb + 1, 2, "(video pending)"));
+    // demo table + two chairs (avatars sit to chat)
+    setF(x + 3, yb + 3, FURN.chairDown); setF(x + 3, yb + 4, FURN.table); setF(x + 3, yb + 5, FURN.chairUp);
+    setF(x + 6, yb + 5, FURN.plant);
+    // live-app kiosk + Q&A
+    if (t.live_url) add(web(`kiosk-t${nn}`, x + 5, yb + 4, 2, 2, t.live_url));
+    else if (t.repo_url) add(web(`repo-t${nn}`, x + 5, yb + 4, 2, 2, t.repo_url));
+    add(jitsi(`qa-t${nn}`, x + 1, yb + 4, 2, 3, `team-${nn}-booth`));
   });
 }
 
@@ -172,14 +193,17 @@ const spawnX0 = CX - 2, spawnY = 1; // spawn at very top, walk down into venue
 const startLayer = fill("start", (x, y) => (y === spawnY && x >= spawnX0 && x < spawnX0 + 4) ? GID.start : 0);
 const collisions = fill("collisions", (x, y) => (border(x, y) ? GID.collision : 0));
 const floor = fill("floor", () => GID.floor);
+const furniture = fill("furniture", (x, y) => furn.get(`${x},${y}`) || 0);
 
 const map = {
   compressionlevel: -1, width: MAP_W, height: TOTAL_H, tilewidth: TS, tileheight: TS,
   infinite: false, orientation: "orthogonal", renderorder: "right-down", type: "map",
   version: "1.10", tiledversion: "1.10.2", nextlayerid: 100, nextobjectid: _oid + 1, tilesets,
-  layers: [ floor, collisions, startLayer,
+  layers: [ floor, furniture, collisions, startLayer,
     { id: 90, name: "floorLayer", type: "objectgroup", class: "floorLayer",
-      visible: true, opacity: 1, x: 0, y: 0, draworder: "topdown", objects } ],
+      visible: true, opacity: 1, x: 0, y: 0, draworder: "topdown", objects },
+    { id: 91, name: "logos", type: "objectgroup",
+      visible: true, opacity: 1, x: 0, y: 0, draworder: "topdown", objects: logoObjs } ],
   properties: [
     prop("mapName", "Vibe Code Tours — Demo Day", "string"),
     prop("mapDescription", "Cohort 1 finale: stage · 20 team booths · personal gallery · vote · social", "string"),

@@ -1,2 +1,9 @@
 node_modules/
 .DS_Store
+# dev-only render artifacts
+*-render.png
+crop-*.png
+palette-*.png
+office.tmj
+office-render.png
+_tilesets.json
