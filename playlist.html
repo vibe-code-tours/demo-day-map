@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Demo Day Reel — Vibe Code Tours</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0b1220;color:#e5e7eb;font-family:system-ui,sans-serif;overflow:hidden;height:100vh;display:flex;flex-direction:column}
+  #player{flex:1;background:#000;position:relative}
+  #player iframe{width:100%;height:100%;border:0}
+  .overlay{position:absolute;top:0;left:0;right:0;padding:12px 16px;background:linear-gradient(rgba(0,0,0,.7),transparent);display:flex;justify-content:space-between;align-items:center;z-index:10}
+  .overlay .team{font-size:1.1rem;font-weight:700}
+  .overlay .team span{color:#38bdf8}
+  .overlay .progress{font-size:.85rem;color:#94a3b8}
+  .bar{background:#0d1526;border-top:1px solid #334155;padding:10px 16px;display:flex;gap:10px;align-items:center;z-index:10}
+  .bar button{padding:8px 16px;border:0;border-radius:8px;background:#1e293b;color:#e5e7eb;font-size:.9rem;cursor:pointer}
+  .bar button:hover{background:#334155}
+  .bar button.primary{background:#12a594;color:#fff}
+  .bar .info{flex:1;font-size:.8rem;color:#94a3b8;text-align:center}
+  .bar .timer{font-size:.9rem;color:#38bdf8;font-variant-numeric:tabular-nums}
+  .hidden{display:none!important}
+</style>
+</head>
+<body>
+<div id="player"><div class="overlay" id="overlay"><div class="team" id="teamLabel"></div><div class="progress" id="progress"></div></div></div>
+<div class="bar">
+  <button id="prev">⏮ Prev</button>
+  <button id="playPause">⏸ Pause</button>
+  <button id="next" class="primary">Next ⏭</button>
+  <div class="info" id="barInfo"></div>
+  <div class="timer" id="timer"></div>
+</div>
+<script>
+const VIDEOS = [
+  {no:"01",title:"Yay Thal Pya Zat",id:"PgkMgBNo_CQ"},
+  {no:"03",title:"Pwe",id:"liQ1GLD-Yjw"},
+  {no:"04",title:"Job Your Love",id:"vUt2PTLdMFk"},
+  {no:"06",title:"QRDine",id:"TYp_2D272RA"},
+  {no:"07",title:"ARGUS",id:"l21W5o0iajs"},
+  {no:"08",title:"TheChosenOne",id:"8BOzHHbaYcY"},
+  {no:"09",title:"Mhat Tan",id:"KDyi62aT0LM"},
+  {no:"10",title:"Yoe Yar Zay",id:"Ri1Lsn1pFu4"},
+  {no:"11",title:"Personal Analytics",id:"uN-XO4f1miA"},
+  {no:"12",title:"Dr.Note",id:"yt_O3LG9xvU"},
+  {no:"13",title:"Auto Apply",id:"ixVA1mZvpTI"},
+  {no:"14",title:"Worker Voice",id:"Eob5ethv_QA"},
+  {no:"15",title:"ReVive",id:"lk3owT9c5NU"},
+  {no:"16",title:"NerdQuiz",id:"dpZXsGV3w5s"},
+  {no:"17",title:"Adaptive Interview Assessment",id:"mSDow1yT1nY"},
+  {no:"18",title:"Fraud Awareness Hub",id:"N66wR8bJDZU"},
+  {no:"19",title:"SoulScript",id:"rKaBqSJWF9s"},
+  {no:"20",title:"Kone Sone Sine",id:"Dha-jETmrks"},
+];
+let idx=0, paused=false, timer=null, elapsed=0;
+const player=document.getElementById("player");
+const overlay=document.getElementById("overlay");
+const teamLabel=document.getElementById("teamLabel");
+const progress=document.getElementById("progress");
+const barInfo=document.getElementById("barInfo");
+const timerEl=document.getElementById("timer");
+const playPauseBtn=document.getElementById("playPause");
+
+function load(i){
+  idx=i; elapsed=0;
+  const v=VIDEOS[idx];
+  teamLabel.innerHTML=`T${v.no} · <span>${v.title}</span>`;
+  progress.textContent=`${idx+1} / ${VIDEOS.length}`;
+  barInfo.textContent=`T${v.no} — ${v.title}`;
+  // embed with autoplay+mute (browser policy), enable JS API
+  const src=`https://www.youtube.com/embed/${v.id}?autoplay=1&mute=1&enablejsapi=1&rel=0`;
+  player.querySelector("iframe")?.remove();
+  const f=document.createElement("iframe");
+  f.src=src; f.allow="autoplay; encrypted-media"; f.allowFullscreen=true;
+  player.appendChild(f);
+  startTimer();
+}
+function startTimer(){
+  clearInterval(timer);
+  timer=setInterval(()=>{
+    if(!paused){elapsed++;const m=Math.floor(elapsed/60),s=elapsed%60;
+    timerEl.textContent=`${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;}
+  },1000);
+}
+function next(){if(idx<VIDEOS.length-1)load(idx+1);}
+function prev(){if(idx>0)load(idx-1);}
+function toggle(){
+  paused=!paused;
+  playPauseBtn.textContent=paused?"▶ Play":"⏸ Pause";
+  // post to YT iframe
+  player.querySelector("iframe")?.contentWindow.postMessage(
+    JSON.stringify({event:"command",func:paused?"pauseVideo":"playVideo"}),"*");
+}
+
+document.getElementById("next").onclick=next;
+document.getElementById("prev").onclick=prev;
+playPauseBtn.onclick=toggle;
+// keyboard: Space=next, Left=prev, P=pause
+document.addEventListener("keydown",(e)=>{
+  if(e.code==="Space"){e.preventDefault();next();}
+  else if(e.code==="ArrowLeft"){e.preventDefault();prev();}
+  else if(e.code==="KeyP"){e.preventDefault();toggle();}
+});
+
+load(0);
+</script>
+</body>
+</html>
