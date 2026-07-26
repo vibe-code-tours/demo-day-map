@@ -18,7 +18,7 @@ const { width: W, height: H, tilewidth: TS } = m;
 
 const tileLayers = Object.fromEntries(m.layers.filter((l) => l.type === "tilelayer").map((l) => [l.name, l]));
 const objects = m.layers.filter((l) => l.type === "objectgroup").flatMap((l) => l.objects);
-const areas = objects.filter((o) => o.class === "area");
+const areas = objects.filter((o) => o.type === "area");
 const collide = tileLayers.collisions.data;
 const start = tileLayers.start.data;
 
@@ -69,7 +69,7 @@ if (spawns.length) {
 }
 const unreachable = areas.filter((a) => {
   const r = tileRect(a);
-  for (let y = r.y0; y < r.y1; y++) for (let x = r.x0; x < r.x1; x++) if (seen.has(`${x},${y}`)) return false;
+  for (let y = Math.floor(r.y0); y < Math.ceil(r.y1); y++) for (let x = Math.floor(r.x0); x < Math.ceil(r.x1); x++) if (seen.has(`${x},${y}`)) return false;
   return true;
 });
 check("every area reachable on foot from spawn", unreachable.length === 0, unreachable.map((a) => a.name).join(", "));
