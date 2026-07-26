@@ -20,9 +20,19 @@
   .bar .info{flex:1;font-size:.8rem;color:#94a3b8;text-align:center}
   .bar .timer{font-size:.9rem;color:#38bdf8;font-variant-numeric:tabular-nums}
   .hidden{display:none!important}
+  #startOverlay{position:fixed;inset:0;background:#0b1220;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:100;cursor:pointer}
+  #startOverlay h1{font-size:2rem;margin-bottom:8px}
+  #startOverlay p{color:#94a3b8;font-size:1rem;margin-bottom:24px}
+  #startOverlay .play{font-size:4rem;transition:transform .2s}
+  #startOverlay:hover .play{transform:scale(1.15)}
 </style>
 </head>
 <body>
+<div id="startOverlay">
+  <h1>🎬 Vibe Code Tours — Demo Day Reel</h1>
+  <p>18 team demos · click anywhere to start with sound</p>
+  <div class="play">▶</div>
+</div>
 <div id="player"><div class="overlay" id="overlay"><div class="team" id="teamLabel"></div><div class="progress" id="progress"></div></div></div>
 <div class="bar">
   <button id="prev">⏮ Prev</button>
@@ -53,7 +63,7 @@ const VIDEOS = [
   {no:"19",title:"SoulScript",id:"rKaBqSJWF9s"},
   {no:"20",title:"Kone Sone Sine",id:"Dha-jETmrks"},
 ];
-let idx=0, paused=false, timer=null, elapsed=0, soundOn=false;
+let idx=0, paused=false, timer=null, elapsed=0, soundOn=true;
 const player=document.getElementById("player");
 const overlay=document.getElementById("overlay");
 const teamLabel=document.getElementById("teamLabel");
@@ -110,7 +120,9 @@ document.addEventListener("keydown",(e)=>{
   else if(e.code==="KeyP"){e.preventDefault();toggle();}
 });
 
-load(0);
+document.getElementById("startOverlay").onclick=()=>{
+  document.getElementById("startOverlay").classList.add("hidden");
+};
 </script>
 </body>
 </html>
