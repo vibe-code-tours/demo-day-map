@@ -32,7 +32,7 @@ const MAP_H = SPECIAL_ROW_Y + vpitch + MARGIN;
 // --- external URLs ---
 const SITE = "https://vibecode.tours";
 const URLS = {
-  vote: `${SITE}/vote`, personalGallery: `${SITE}/projects/personal`, teamGallery: `${SITE}/projects/teams`,
+  vote: "https://proxy.vibecode.tours/vote/vote.html", personalGallery: `${SITE}/projects/personal`, teamGallery: `${SITE}/projects/teams`,
   home: `${SITE}/`, gallery: `${SITE}/gallery`,
   feedbackForm: "https://forms.gle/REPLACE_FEEDBACK_FORM",
   premiere: "https://www.youtube.com/embed/live_stream?channel=REPLACE_CHANNEL",

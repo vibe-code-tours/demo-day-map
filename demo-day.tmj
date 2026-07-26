@@ -21702,22 +21702,43 @@
     },
     {
      "id": 12,
-     "name": "novideo-t03",
-     "type": "",
+     "name": "video-t03",
+     "type": "area",
+     "class": "area",
      "x": 864,
-     "y": 448,
-     "width": 128,
+     "y": 384,
+     "width": 96,
      "height": 64,
      "rotation": 0,
      "visible": true,
-     "text": {
-      "text": "video pending",
-      "fontfamily": "Sans Serif",
-      "pixelsize": 11,
-      "wrap": true,
-      "color": "#ffffff",
-      "bold": true
-     }
+     "ellipse": false,
+     "properties": [
+      {
+       "name": "openWebsite",
+       "type": "string",
+       "value": "https://www.youtube.com/embed/liQ1GLD-Yjw?autoplay=1&mute=1&loop=1&playlist=liQ1GLD-Yjw"
+      },
+      {
+       "name": "openWebsiteTrigger",
+       "type": "string",
+       "value": "onaction"
+      },
+      {
+       "name": "openWebsitePolicy",
+       "type": "string",
+       "value": "autoplay; fullscreen"
+      },
+      {
+       "name": "openWebsiteWidth",
+       "type": "int",
+       "value": 45
+      },
+      {
+       "name": "focusable",
+       "type": "bool",
+       "value": true
+      }
+     ]
     },
     {
      "id": 13,
@@ -21815,26 +21836,47 @@
     },
     {
      "id": 17,
-     "name": "novideo-t04",
-     "type": "",
+     "name": "video-t04",
+     "type": "area",
+     "class": "area",
      "x": 1216,
-     "y": 448,
-     "width": 128,
+     "y": 384,
+     "width": 96,
      "height": 64,
      "rotation": 0,
      "visible": true,
-     "text": {
-      "text": "video pending",
-      "fontfamily": "Sans Serif",
-      "pixelsize": 11,
-      "wrap": true,
-      "color": "#ffffff",
-      "bold": true
-     }
+     "ellipse": false,
+     "properties": [
+      {
+       "name": "openWebsite",
+       "type": "string",
+       "value": "https://www.youtube.com/embed/vUt2PTLdMFk?autoplay=1&mute=1&loop=1&playlist=vUt2PTLdMFk"
+      },
+      {
+       "name": "openWebsiteTrigger",
+       "type": "string",
+       "value": "onaction"
+      },
+      {
+       "name": "openWebsitePolicy",
+       "type": "string",
+       "value": "autoplay; fullscreen"
+      },
+      {
+       "name": "openWebsiteWidth",
+       "type": "int",
+       "value": 45
+      },
+      {
+       "name": "focusable",
+       "type": "bool",
+       "value": true
+      }
+     ]
     },
     {
      "id": 18,
-     "name": "repo-t04",
+     "name": "kiosk-t04",
      "type": "area",
      "class": "area",
      "x": 1312,
@@ -21848,7 +21890,7 @@
       {
        "name": "openWebsite",
        "type": "string",
-       "value": "https://github.com/vibe-code-tours/Team-04-app"
+       "value": "https://job-your-love.megiapps.workers.dev/"
       },
       {
        "name": "openWebsiteTrigger",
@@ -21918,7 +21960,7 @@
      "rotation": 0,
      "visible": true,
      "text": {
-      "text": "04 · Team-04",
+      "text": "04 · Job Your Love",
       "fontfamily": "Sans Serif",
       "pixelsize": 12,
       "wrap": true,
@@ -22041,22 +22083,43 @@
     },
     {
      "id": 27,
-     "name": "novideo-t06",
-     "type": "",
+     "name": "video-t06",
+     "type": "area",
+     "class": "area",
      "x": 512,
-     "y": 832,
-     "width": 128,
+     "y": 768,
+     "width": 96,
      "height": 64,
      "rotation": 0,
      "visible": true,
-     "text": {
-      "text": "video pending",
-      "fontfamily": "Sans Serif",
-      "pixelsize": 11,
-      "wrap": true,
-      "color": "#ffffff",
-      "bold": true
-     }
+     "ellipse": false,
+     "properties": [
+      {
+       "name": "openWebsite",
+       "type": "string",
+       "value": "https://www.youtube.com/embed/TYp_2D272RA?autoplay=1&mute=1&loop=1&playlist=TYp_2D272RA"
+      },
+      {
+       "name": "openWebsiteTrigger",
+       "type": "string",
+       "value": "onaction"
+      },
+      {
+       "name": "openWebsitePolicy",
+       "type": "string",
+       "value": "autoplay; fullscreen"
+      },
+      {
+       "name": "openWebsiteWidth",
+       "type": "int",
+       "value": 45
+      },
+      {
+       "name": "focusable",
+       "type": "bool",
+       "value": true
+      }
+     ]
     },
     {
      "id": 28,
@@ -22074,7 +22137,7 @@
       {
        "name": "openWebsite",
        "type": "string",
-       "value": "https://team-06-app.netlify.app/"
+       "value": "https://qrdine-demo.vercel.app/"
       },
       {
        "name": "openWebsiteTrigger",
@@ -22154,22 +22217,43 @@
     },
     {
      "id": 32,
-     "name": "novideo-t07",
-     "type": "",
+     "name": "video-t07",
+     "type": "area",
+     "class": "area",
      "x": 864,
-     "y": 832,
-     "width": 128,
+     "y": 768,
+     "width": 96,
      "height": 64,
      "rotation": 0,
      "visible": true,
-     "text": {
-      "text": "video pending",
-      "fontfamily": "Sans Serif",
-      "pixelsize": 11,
-      "wrap": true,
-      "color": "#ffffff",
-      "bold": true
-     }
+     "ellipse": false,
+     "properties": [
+      {
+       "name": "openWebsite",
+       "type": "string",
+       "value": "https://www.youtube.com/embed/l21W5o0iajs?autoplay=1&mute=1&loop=1&playlist=l21W5o0iajs"
+      },
+      {
+       "name": "openWebsiteTrigger",
+       "type": "string",
+       "value": "onaction"
+      },
+      {
+       "name": "openWebsitePolicy",
+       "type": "string",
+       "value": "autoplay; fullscreen"
+      },
+      {
+       "name": "openWebsiteWidth",
+       "type": "int",
+       "value": 45
+      },
+      {
+       "name": "focusable",
+       "type": "bool",
+       "value": true
+      }
+     ]
     },
     {
      "id": 33,
@@ -22281,7 +22365,7 @@
       {
        "name": "openWebsite",
        "type": "string",
-       "value": "https://www.youtube.com/embed/J6YnDcO0r7c?autoplay=1&mute=1&loop=1&playlist=J6YnDcO0r7c"
+       "value": "https://www.youtube.com/embed/8BOzHHbaYcY?autoplay=1&mute=1&loop=1&playlist=8BOzHHbaYcY"
       },
       {
        "name": "openWebsiteTrigger",
@@ -22415,7 +22499,7 @@
       {
        "name": "openWebsite",
        "type": "string",
-       "value": "https://www.youtube.com/embed/-hN5QhOEFMU?autoplay=1&mute=1&loop=1&playlist=-hN5QhOEFMU"
+       "value": "https://www.youtube.com/embed/KDyi62aT0LM?autoplay=1&mute=1&loop=1&playlist=KDyi62aT0LM"
       },
       {
        "name": "openWebsiteTrigger",
@@ -22441,7 +22525,7 @@
     },
     {
      "id": 43,
-     "name": "repo-t09",
+     "name": "kiosk-t09",
      "type": "area",
      "class": "area",
      "x": 256,
@@ -22455,7 +22539,7 @@
       {
        "name": "openWebsite",
        "type": "string",
-       "value": "https://github.com/vibe-code-tours/Team-09-app"
+       "value": "https://expo.dev/accounts/thet-naing/projects/mhat-tan/builds/6932f97e-ac8b-4fb2-98ef-0a07fbccef21"
       },
       {
        "name": "openWebsiteTrigger",
@@ -22549,7 +22633,7 @@
       {
        "name": "openWebsite",
        "type": "string",
-       "value": "https://www.youtube.com/embed/6RTI96442aQ?autoplay=1&mute=1&loop=1&playlist=6RTI96442aQ"
+       "value": "https://www.youtube.com/embed/Ri1Lsn1pFu4?autoplay=1&mute=1&loop=1&playlist=Ri1Lsn1pFu4"
       },
       {
        "name": "openWebsiteTrigger",
@@ -22669,22 +22753,43 @@
     },
     {
      "id": 52,
-     "name": "novideo-t11",
-     "type": "",
+     "name": "video-t11",
+     "type": "area",
+     "class": "area",
      "x": 864,
-     "y": 1216,
-     "width": 128,
+     "y": 1152,
+     "width": 96,
      "height": 64,
      "rotation": 0,
      "visible": true,
-     "text": {
-      "text": "video pending",
-      "fontfamily": "Sans Serif",
-      "pixelsize": 11,
-      "wrap": true,
-      "color": "#ffffff",
-      "bold": true
-     }
+     "ellipse": false,
+     "properties": [
+      {
+       "name": "openWebsite",
+       "type": "string",
+       "value": "https://www.youtube.com/embed/uN-XO4f1miA?autoplay=1&mute=1&loop=1&playlist=uN-XO4f1miA"
+      },
+      {
+       "name": "openWebsiteTrigger",
+       "type": "string",
+       "value": "onaction"
+      },
+      {
+       "name": "openWebsitePolicy",
+       "type": "string",
+       "value": "autoplay; fullscreen"
+      },
+      {
+       "name": "openWebsiteWidth",
+       "type": "int",
+       "value": 45
+      },
+      {
+       "name": "focusable",
+       "type": "bool",
+       "value": true
+      }
+     ]
     },
     {
      "id": 53,
@@ -22796,7 +22901,7 @@
       {
        "name": "openWebsite",
        "type": "string",
-       "value": "https://www.youtube.com/embed/rk7r3RzZ2go?autoplay=1&mute=1&loop=1&playlist=rk7r3RzZ2go"
+       "value": "https://www.youtube.com/embed/yt_O3LG9xvU?autoplay=1&mute=1&loop=1&playlist=yt_O3LG9xvU"
       },
       {
        "name": "openWebsiteTrigger",
@@ -22916,26 +23021,47 @@
     },
     {
      "id": 62,
-     "name": "novideo-t13",
-     "type": "",
+     "name": "video-t13",
+     "type": "area",
+     "class": "area",
      "x": 160,
-     "y": 1600,
-     "width": 128,
+     "y": 1536,
+     "width": 96,
      "height": 64,
      "rotation": 0,
      "visible": true,
-     "text": {
-      "text": "video pending",
-      "fontfamily": "Sans Serif",
-      "pixelsize": 11,
-      "wrap": true,
-      "color": "#ffffff",
-      "bold": true
-     }
+     "ellipse": false,
+     "properties": [
+      {
+       "name": "openWebsite",
+       "type": "string",
+       "value": "https://www.youtube.com/embed/ixVA1mZvpTI?autoplay=1&mute=1&loop=1&playlist=ixVA1mZvpTI"
+      },
+      {
+       "name": "openWebsiteTrigger",
+       "type": "string",
+       "value": "onaction"
+      },
+      {
+       "name": "openWebsitePolicy",
+       "type": "string",
+       "value": "autoplay; fullscreen"
+      },
+      {
+       "name": "openWebsiteWidth",
+       "type": "int",
+       "value": 45
+      },
+      {
+       "name": "focusable",
+       "type": "bool",
+       "value": true
+      }
+     ]
     },
     {
      "id": 63,
-     "name": "repo-t13",
+     "name": "kiosk-t13",
      "type": "area",
      "class": "area",
      "x": 256,
@@ -22949,7 +23075,7 @@
       {
        "name": "openWebsite",
        "type": "string",
-       "value": "https://github.com/team-thirteen13/AutoApply"
+       "value": "https://auto-apply-pied.vercel.app/"
       },
       {
        "name": "openWebsiteTrigger",
@@ -23019,7 +23145,7 @@
      "rotation": 0,
      "visible": true,
      "text": {
-      "text": "13 · ApplyAI",
+      "text": "13 · Auto Apply",
       "fontfamily": "Sans Serif",
       "pixelsize": 12,
       "wrap": true,
@@ -23029,22 +23155,43 @@
     },
     {
      "id": 67,
-     "name": "novideo-t14",
-     "type": "",
+     "name": "video-t14",
+     "type": "area",
+     "class": "area",
      "x": 512,
-     "y": 1600,
-     "width": 128,
+     "y": 1536,
+     "width": 96,
      "height": 64,
      "rotation": 0,
      "visible": true,
-     "text": {
-      "text": "video pending",
-      "fontfamily": "Sans Serif",
-      "pixelsize": 11,
-      "wrap": true,
-      "color": "#ffffff",
-      "bold": true
-     }
+     "ellipse": false,
+     "properties": [
+      {
+       "name": "openWebsite",
+       "type": "string",
+       "value": "https://www.youtube.com/embed/Eob5ethv_QA?autoplay=1&mute=1&loop=1&playlist=Eob5ethv_QA"
+      },
+      {
+       "name": "openWebsiteTrigger",
+       "type": "string",
+       "value": "onaction"
+      },
+      {
+       "name": "openWebsitePolicy",
+       "type": "string",
+       "value": "autoplay; fullscreen"
+      },
+      {
+       "name": "openWebsiteWidth",
+       "type": "int",
+       "value": 45
+      },
+      {
+       "name": "focusable",
+       "type": "bool",
+       "value": true
+      }
+     ]
     },
     {
      "id": 68,
@@ -23290,7 +23437,7 @@
       {
        "name": "openWebsite",
        "type": "string",
-       "value": "https://www.youtube.com/embed/KwtHhoQuT_M?autoplay=1&mute=1&loop=1&playlist=KwtHhoQuT_M"
+       "value": "https://www.youtube.com/embed/dpZXsGV3w5s?autoplay=1&mute=1&loop=1&playlist=dpZXsGV3w5s"
       },
       {
        "name": "openWebsiteTrigger",
@@ -23424,7 +23571,7 @@
       {
        "name": "openWebsite",
        "type": "string",
-       "value": "https://www.youtube.com/embed/oI6tWsShC48?autoplay=1&mute=1&loop=1&playlist=oI6tWsShC48"
+       "value": "https://www.youtube.com/embed/mSDow1yT1nY?autoplay=1&mute=1&loop=1&playlist=mSDow1yT1nY"
       },
       {
        "name": "openWebsiteTrigger",
@@ -23558,7 +23705,7 @@
       {
        "name": "openWebsite",
        "type": "string",
-       "value": "https://www.youtube.com/embed/xRPsqSfv4S0?autoplay=1&mute=1&loop=1&playlist=xRPsqSfv4S0"
+       "value": "https://www.youtube.com/embed/N66wR8bJDZU?autoplay=1&mute=1&loop=1&playlist=N66wR8bJDZU"
       },
       {
        "name": "openWebsiteTrigger",
@@ -23598,7 +23745,7 @@
       {
        "name": "openWebsite",
        "type": "string",
-       "value": "https://fraud-awareness-hub-hpa6.vercel.app/"
+       "value": "https://fraud-awareness-hub-sable.vercel.app/"
       },
       {
        "name": "openWebsiteTrigger",
@@ -23668,7 +23815,7 @@
      "rotation": 0,
      "visible": true,
      "text": {
-      "text": "18 · Team-18",
+      "text": "18 · Fraud Awareness Hub",
       "fontfamily": "Sans Serif",
       "pixelsize": 12,
       "wrap": true,
@@ -23692,7 +23839,7 @@
       {
        "name": "openWebsite",
        "type": "string",
-       "value": "https://www.youtube.com/embed/l15rIAoLW3U?autoplay=1&mute=1&loop=1&playlist=l15rIAoLW3U"
+       "value": "https://www.youtube.com/embed/rKaBqSJWF9s?autoplay=1&mute=1&loop=1&playlist=rKaBqSJWF9s"
       },
       {
        "name": "openWebsiteTrigger",
@@ -23812,22 +23959,43 @@
     },
     {
      "id": 97,
-     "name": "novideo-t20",
-     "type": "",
+     "name": "video-t20",
+     "type": "area",
+     "class": "area",
      "x": 1216,
-     "y": 1984,
-     "width": 128,
+     "y": 1920,
+     "width": 96,
      "height": 64,
      "rotation": 0,
      "visible": true,
-     "text": {
-      "text": "video pending",
-      "fontfamily": "Sans Serif",
-      "pixelsize": 11,
-      "wrap": true,
-      "color": "#ffffff",
-      "bold": true
-     }
+     "ellipse": false,
+     "properties": [
+      {
+       "name": "openWebsite",
+       "type": "string",
+       "value": "https://www.youtube.com/embed/Dha-jETmrks?autoplay=1&mute=1&loop=1&playlist=Dha-jETmrks"
+      },
+      {
+       "name": "openWebsiteTrigger",
+       "type": "string",
+       "value": "onaction"
+      },
+      {
+       "name": "openWebsitePolicy",
+       "type": "string",
+       "value": "autoplay; fullscreen"
+      },
+      {
+       "name": "openWebsiteWidth",
+       "type": "int",
+       "value": 45
+      },
+      {
+       "name": "focusable",
+       "type": "bool",
+       "value": true
+      }
+     ]
     },
     {
      "id": 98,
@@ -24203,7 +24371,7 @@
       {
        "name": "openWebsite",
        "type": "string",
-       "value": "https://vibecode.tours/vote"
+       "value": "https://proxy.vibecode.tours/vote/vote.html"
       },
       {
        "name": "openWebsiteTrigger",
