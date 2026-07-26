@@ -1,0 +1,21 @@
+# Team 16 booth — Demo Day map
+# Blank value = that booth area is skipped (no dead zone in the room).
+# jitsi room is auto-generated: team-16-booth
+
+team_no: 16
+team: Team-16
+title: NerdQuiz
+desc: ITPEC FE exam preparation website
+
+# wall banner. blank -> falls back to the generated team badge tile
+logo_url: 
+
+# demo video. youtube link gets embedded inline; any other link opens in a panel
+video_url: "https://youtu.be/dpZXsGV3w5s"
+
+# live app. blank -> repo_url is used instead
+site_url: "https://nerdquiz-16.netlify.app"
+repo_url: "https://github.com/vibe-code-tours/Team-16-app"
+
+# pitch deck / slides. blank -> no slide easel in the booth
+slide_url: 

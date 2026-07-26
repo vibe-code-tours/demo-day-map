@@ -1,0 +1,21 @@
+# Team 05 booth — Demo Day map
+# Blank value = that booth area is skipped (no dead zone in the room).
+# jitsi room is auto-generated: team-05-booth
+
+team_no: 5
+team: Team-05
+title: CrossMart
+desc: A comprehensive cross-border e-commerce marketplace tailored for Myanmar
+
+# wall banner. blank -> falls back to the generated team badge tile
+logo_url: 
+
+# demo video. youtube link gets embedded inline; any other link opens in a panel
+video_url: 
+
+# live app. blank -> repo_url is used instead
+site_url: "https://team-05-app.vercel.app"
+repo_url: "https://github.com/vibe-code-tours/Team-05-app"
+
+# pitch deck / slides. blank -> no slide easel in the booth
+slide_url: 

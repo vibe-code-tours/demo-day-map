@@ -1,0 +1,21 @@
+# Team 06 booth — Demo Day map
+# Blank value = that booth area is skipped (no dead zone in the room).
+# jitsi room is auto-generated: team-06-booth
+
+team_no: 6
+team: Team-06
+title: QRDine
+desc: Restaurant QR Order System
+
+# wall banner. blank -> falls back to the generated team badge tile
+logo_url: 
+
+# demo video. youtube link gets embedded inline; any other link opens in a panel
+video_url: "https://youtu.be/TYp_2D272RA"
+
+# live app. blank -> repo_url is used instead
+site_url: "https://qrdine-demo.vercel.app/"
+repo_url: "https://github.com/vibe-code-tours/Team-06-app"
+
+# pitch deck / slides. blank -> no slide easel in the booth
+slide_url: 

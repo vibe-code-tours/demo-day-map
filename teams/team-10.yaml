@@ -1,0 +1,21 @@
+# Team 10 booth — Demo Day map
+# Blank value = that booth area is skipped (no dead zone in the room).
+# jitsi room is auto-generated: team-10-booth
+
+team_no: 10
+team: Team-10
+title: Yoe Yar Zay
+desc: Myanmar Local Product Directory & E-Commerce
+
+# wall banner. blank -> falls back to the generated team badge tile
+logo_url: 
+
+# demo video. youtube link gets embedded inline; any other link opens in a panel
+video_url: "https://youtu.be/Ri1Lsn1pFu4"
+
+# live app. blank -> repo_url is used instead
+site_url: "https://yoeyarzay.vercel.app/"
+repo_url: "https://github.com/vibe-code-tours/Team-10-app"
+
+# pitch deck / slides. blank -> no slide easel in the booth
+slide_url: 

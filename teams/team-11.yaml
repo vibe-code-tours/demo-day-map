@@ -1,0 +1,21 @@
+# Team 11 booth — Demo Day map
+# Blank value = that booth area is skipped (no dead zone in the room).
+# jitsi room is auto-generated: team-11-booth
+
+team_no: 11
+team: Team-11
+title: Personal Analytics
+desc: AI-Powered Personal Analytics & Productivity Suite An all-in-one smart dashboard that utilizes edge computer vision and generative AI to seamlessly manage fitness, finances, and cognitive focus.
+
+# wall banner. blank -> falls back to the generated team badge tile
+logo_url: 
+
+# demo video. youtube link gets embedded inline; any other link opens in a panel
+video_url: "https://www.youtube.com/watch?v=uN-XO4f1miA"
+
+# live app. blank -> repo_url is used instead
+site_url: "https://personal-analytics-amber.vercel.app/"
+repo_url: "https://github.com/team11-hub-coder/personal-analytics.git"
+
+# pitch deck / slides. blank -> no slide easel in the booth
+slide_url: 

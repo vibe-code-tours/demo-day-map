@@ -1,0 +1,21 @@
+# Team 17 booth — Demo Day map
+# Blank value = that booth area is skipped (no dead zone in the room).
+# jitsi room is auto-generated: team-17-booth
+
+team_no: 17
+team: Team-17
+title: Adaptive Interview Assessment Platform
+desc: 
+
+# wall banner. blank -> falls back to the generated team badge tile
+logo_url: 
+
+# demo video. youtube link gets embedded inline; any other link opens in a panel
+video_url: "https://youtu.be/mSDow1yT1nY"
+
+# live app. blank -> repo_url is used instead
+site_url: "https://team-17-app-dulg.vercel.app"
+repo_url: "https://github.com/GadayHtun/team-17-app"
+
+# pitch deck / slides. blank -> no slide easel in the booth
+slide_url: 

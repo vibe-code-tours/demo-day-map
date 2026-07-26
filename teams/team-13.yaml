@@ -1,0 +1,21 @@
+# Team 13 booth — Demo Day map
+# Blank value = that booth area is skipped (no dead zone in the room).
+# jitsi room is auto-generated: team-13-booth
+
+team_no: 13
+team: Team-13
+title: Auto Apply
+desc: AI powered resume creating platform
+
+# wall banner. blank -> falls back to the generated team badge tile
+logo_url: 
+
+# demo video. youtube link gets embedded inline; any other link opens in a panel
+video_url: "https://youtu.be/ixVA1mZvpTI"
+
+# live app. blank -> repo_url is used instead
+site_url: "https://auto-apply-pied.vercel.app/"
+repo_url: "https://github.com/team-thirteen13/AutoApply"
+
+# pitch deck / slides. blank -> no slide easel in the booth
+slide_url: 

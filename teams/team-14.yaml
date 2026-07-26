@@ -1,0 +1,21 @@
+# Team 14 booth — Demo Day map
+# Blank value = that booth area is skipped (no dead zone in the room).
+# jitsi room is auto-generated: team-14-booth
+
+team_no: 14
+team: Team-14
+title: Worker Voice
+desc: WorkerVoice Review Platform
+
+# wall banner. blank -> falls back to the generated team badge tile
+logo_url: 
+
+# demo video. youtube link gets embedded inline; any other link opens in a panel
+video_url: "https://youtu.be/Eob5ethv_QA?si=uweHd9NMjC-2_i7G"
+
+# live app. blank -> repo_url is used instead
+site_url: "https://workervoice.help/"
+repo_url: "https://github.com/vibe-code-tours/Team-14-app"
+
+# pitch deck / slides. blank -> no slide easel in the booth
+slide_url: 

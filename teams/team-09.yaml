@@ -1,0 +1,21 @@
+# Team 09 booth — Demo Day map
+# Blank value = that booth area is skipped (no dead zone in the room).
+# jitsi room is auto-generated: team-09-booth
+
+team_no: 9
+team: Team-09
+title: Mhat Tan
+desc: Mhat Tan Mobile App (Android)
+
+# wall banner. blank -> falls back to the generated team badge tile
+logo_url: 
+
+# demo video. youtube link gets embedded inline; any other link opens in a panel
+video_url: "https://youtu.be/KDyi62aT0LM"
+
+# live app. blank -> repo_url is used instead
+site_url: "https://expo.dev/accounts/thet-naing/projects/mhat-tan/builds/6932f97e-ac8b-4fb2-98ef-0a07fbccef21"
+repo_url: "https://github.com/vibe-code-tours/Team-09-app"
+
+# pitch deck / slides. blank -> no slide easel in the booth
+slide_url: 

@@ -1,0 +1,21 @@
+# Team 15 booth — Demo Day map
+# Blank value = that booth area is skipped (no dead zone in the room).
+# jitsi room is auto-generated: team-15-booth
+
+team_no: 15
+team: Team-15
+title: ReVive
+desc: Give Your Old Tech a Second Life
+
+# wall banner. blank -> falls back to the generated team badge tile
+logo_url: 
+
+# demo video. youtube link gets embedded inline; any other link opens in a panel
+video_url: "https://youtu.be/lk3owT9c5NU?si=JBv8OBtGvqxF1Yh_"
+
+# live app. blank -> repo_url is used instead
+site_url: "https://team-15-app.vercel.app/"
+repo_url: "https://github.com/vibe-code-tours/Team-15-app"
+
+# pitch deck / slides. blank -> no slide easel in the booth
+slide_url: 

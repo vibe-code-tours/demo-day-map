@@ -1,0 +1,21 @@
+# Team 01 booth — Demo Day map
+# Blank value = that booth area is skipped (no dead zone in the room).
+# jitsi room is auto-generated: team-01-booth
+
+team_no: 1
+team: Team-01
+title: Yay Thal Pya Zat
+desc: Water Delivery System (Web + API)
+
+# wall banner. blank -> falls back to the generated team badge tile
+logo_url: 
+
+# demo video. youtube link gets embedded inline; any other link opens in a panel
+video_url: "https://youtu.be/PgkMgBNo_CQ"
+
+# live app. blank -> repo_url is used instead
+site_url: "https://water-delivery-system-prod.vercel.app/"
+repo_url: "https://github.com/vibe-code-tours/Team-01-app"
+
+# pitch deck / slides. blank -> no slide easel in the booth
+slide_url: 

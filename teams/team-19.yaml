@@ -1,0 +1,21 @@
+# Team 19 booth — Demo Day map
+# Blank value = that booth area is skipped (no dead zone in the room).
+# jitsi room is auto-generated: team-19-booth
+
+team_no: 19
+team: Team-19
+title: SoulScript
+desc: Web Application – AI Mood Journal
+
+# wall banner. blank -> falls back to the generated team badge tile
+logo_url: 
+
+# demo video. youtube link gets embedded inline; any other link opens in a panel
+video_url: "https://youtu.be/rKaBqSJWF9s"
+
+# live app. blank -> repo_url is used instead
+site_url: "https://soul-script-nu.vercel.app/"
+repo_url: "https://github.com/vibe-code-tours/Team-19-app"
+
+# pitch deck / slides. blank -> no slide easel in the booth
+slide_url: 

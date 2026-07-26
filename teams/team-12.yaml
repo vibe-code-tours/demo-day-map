@@ -1,0 +1,21 @@
+# Team 12 booth — Demo Day map
+# Blank value = that booth area is skipped (no dead zone in the room).
+# jitsi room is auto-generated: team-12-booth
+
+team_no: 12
+team: Team-12
+title: Dr.Note
+desc: 
+
+# wall banner. blank -> falls back to the generated team badge tile
+logo_url: 
+
+# demo video. youtube link gets embedded inline; any other link opens in a panel
+video_url: "https://youtu.be/yt_O3LG9xvU"
+
+# live app. blank -> repo_url is used instead
+site_url: "https://dr-note-demo.vercel.app/login"
+repo_url: "https://github.com/vibe-code-tours/Team-12-app"
+
+# pitch deck / slides. blank -> no slide easel in the booth
+slide_url: 

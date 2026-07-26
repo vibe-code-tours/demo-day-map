@@ -1,0 +1,21 @@
+# Team 18 booth — Demo Day map
+# Blank value = that booth area is skipped (no dead zone in the room).
+# jitsi room is auto-generated: team-18-booth
+
+team_no: 18
+team: Team-18
+title: Fraud Awareness Hub
+desc: 
+
+# wall banner. blank -> falls back to the generated team badge tile
+logo_url: 
+
+# demo video. youtube link gets embedded inline; any other link opens in a panel
+video_url: "https://youtu.be/N66wR8bJDZU"
+
+# live app. blank -> repo_url is used instead
+site_url: "https://fraud-awareness-hub-sable.vercel.app/"
+repo_url: "https://github.com/swan1792/Fraud_Awareness_Hub.git"
+
+# pitch deck / slides. blank -> no slide easel in the booth
+slide_url: 
