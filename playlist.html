@@ -27,6 +27,7 @@
 <div class="bar">
   <button id="prev">⏮ Prev</button>
   <button id="playPause">⏸ Pause</button>
+  <button id="soundToggle">🔇 Unmute</button>
   <button id="next" class="primary">Next ⏭</button>
   <div class="info" id="barInfo"></div>
   <div class="timer" id="timer"></div>
@@ -52,7 +53,7 @@ const VIDEOS = [
   {no:"19",title:"SoulScript",id:"rKaBqSJWF9s"},
   {no:"20",title:"Kone Sone Sine",id:"Dha-jETmrks"},
 ];
-let idx=0, paused=false, timer=null, elapsed=0;
+let idx=0, paused=false, timer=null, elapsed=0, soundOn=false;
 const player=document.getElementById("player");
 const overlay=document.getElementById("overlay");
 const teamLabel=document.getElementById("teamLabel");
@@ -67,8 +68,9 @@ function load(i){
   teamLabel.innerHTML=`T${v.no} · <span>${v.title}</span>`;
   progress.textContent=`${idx+1} / ${VIDEOS.length}`;
   barInfo.textContent=`T${v.no} — ${v.title}`;
-  // embed with autoplay+mute (browser policy), enable JS API
-  const src=`https://www.youtube.com/embed/${v.id}?autoplay=1&mute=1&enablejsapi=1&rel=0`;
+  // embed with autoplay; mute only if sound not yet toggled on
+  const muteParam = soundOn ? 0 : 1;
+  const src=`https://www.youtube.com/embed/${v.id}?autoplay=1&mute=${muteParam}&enablejsapi=1&rel=0`;
   player.querySelector("iframe")?.remove();
   const f=document.createElement("iframe");
   f.src=src; f.allow="autoplay; encrypted-media"; f.allowFullscreen=true;
@@ -95,6 +97,12 @@ function toggle(){
 document.getElementById("next").onclick=next;
 document.getElementById("prev").onclick=prev;
 playPauseBtn.onclick=toggle;
+document.getElementById("soundToggle").onclick=()=>{
+  soundOn=!soundOn;
+  document.getElementById("soundToggle").textContent=soundOn?"🔊 Sound On":"🔇 Unmute";
+  // reload current video with new mute setting
+  load(idx);
+};
 // keyboard: Space=next, Left=prev, P=pause
 document.addEventListener("keydown",(e)=>{
   if(e.code==="Space"){e.preventDefault();next();}
