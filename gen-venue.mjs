@@ -274,9 +274,11 @@ const spawnX = centerX(4);
 const spawnY = MAP_H - MARGIN - 1;
 for (let x = spawnX; x < spawnX + 4; x++) startL[idx(x, spawnY)] = START_GID;
 
-// ---------- outer boundary wall ----------
-for (let x = 0; x < MAP_W; x++) { collide[idx(x, 0)] = 1; collide[idx(x, MAP_H - 1)] = 1; }
-for (let y = 0; y < MAP_H; y++) { collide[idx(0, y)] = 1; collide[idx(MAP_W - 1, y)] = 1; }
+// ---------- no perimeter boundary wall ----------
+// WA already blocks walking off the map edge. Drawing a collision border
+// around the whole venue added a visible wall line in the render even though
+// the collisions layer is invisible in WA. Removing it so the venue reads
+// as an open field.
 
 // ---------- tilesets (cc + logo atlas) ----------
 const tilesets = [...ccTilesets, {
