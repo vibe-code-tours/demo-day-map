@@ -60,9 +60,23 @@ with the file and line number rather than silently producing an empty booth.
 - `demo-day-v1.tmj.bak` is the previous 4x5-grid venue, kept as a rollback until the new map is
   confirmed live in WorkAdventure.
 
+## Vote kiosks
+
+Both ballots are live and **public** — anyone may vote, cohort membership is not required.
+One vote per email address per ballot, inside the 19:00–21:45 MMT window.
+
+| Kiosk | Opens | Needs |
+|---|---|---|
+| ⭐ PERSONAL People's Choice | `proxy.vibecode.tours/vote/pvote.html` | `openWebsiteAllowApi` |
+| 🏆 TEAM People's Choice | `proxy.vibecode.tours/vote/vote.html` | `openWebsiteAllowApi` |
+
+Both pages read `WA.player.*` for the uuid audit trail, so both kiosks set
+`openWebsiteAllowApi = true`. Without it the page stalls ~2.5s and falls back to a localStorage id.
+
 ## Known gaps
 
-- Personal People's Choice has no backend — `demo-day-vote` is team-only. That kiosk currently
-  opens the gallery so it is never a dead screen.
-- `URLS.premiere` in `gen-venue.mjs` still has a `REPLACE_CHANNEL` placeholder.
+- `URLS.premiere` in `gen-venue.mjs` still has a `REPLACE_CHANNEL` placeholder — the stage reel
+  screen will not play until that is set.
 - Teams 02 and 05 have no demo video in `teams.json`, so their booths have no video area.
+- All 20 `logo_url` and `slide_url` are blank; booths fall back to the generated badge and skip
+  the slide board until they are filled in.

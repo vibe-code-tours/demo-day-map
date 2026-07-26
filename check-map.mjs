@@ -87,6 +87,32 @@ check("every booth has at least one screen", noScreen.length === 0, noScreen.joi
 const noQa = boothIds.filter((n) => !booths[n].has("qa"));
 check("every booth has a Q&A room", noQa.length === 0, noQa.join(" "));
 
+// --- text labels must not print on top of each other ---
+const labels = objects.filter((o) => o.text);
+const overlaps = [];
+for (let i = 0; i < labels.length; i++) for (let j = i + 1; j < labels.length; j++) {
+  const a = labels[i], b = labels[j];
+  if (a.x < b.x + b.width && b.x < a.x + a.width && a.y < b.y + b.height && b.y < a.y + a.height) {
+    overlaps.push(`${a.name} × ${b.name}`);
+  }
+}
+check("no text label overlaps another", overlaps.length === 0,
+  overlaps.length ? overlaps.slice(0, 6).join("; ") : `${labels.length} labels`);
+
+// --- paired left/right features must read as centred ---
+const centreOf = (name) => {
+  const o = objects.find((x) => x.name === name);
+  return o ? (o.x + o.width / 2) / TS : null;
+};
+const PAIRS = [["gallery-personal", "gallery-team"], ["vote-personal", "vote-team"]];
+const offCentre = PAIRS.map(([l, r]) => {
+  const a = centreOf(l), b = centreOf(r);
+  if (a === null || b === null) return `${l}/${r} missing`;
+  const off = Math.abs((a + b) / 2 - W / 2);
+  return off > 0.01 ? `${l}/${r} off by ${off} tiles` : null;
+}).filter(Boolean);
+check("gallery + vote pairs centred on the map", offCentre.length === 0, offCentre.join("; "));
+
 console.log(`\n${FILE.split("/").pop()}: ${W}x${H} tiles, ${areas.length} areas, ${objects.length} objects`);
 if (fail.length) { console.error(`\n${fail.length} check(s) failed`); process.exit(1); }
 console.log("all checks passed");

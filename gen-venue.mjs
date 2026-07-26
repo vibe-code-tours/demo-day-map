@@ -42,9 +42,7 @@ const URLS = {
   teamGallery: `${SITE}/projects/teams/`,
   gallery: `${SITE}/gallery/`,
   teamVote: "https://proxy.vibecode.tours/vote/vote.html",
-  // Personal People's Choice has no backend yet — the vote app is team-only.
-  // Until it has one, this kiosk points at the gallery so it is never a dead screen.
-  personalVote: `${SITE}/gallery/`,
+  personalVote: "https://proxy.vibecode.tours/vote/pvote.html",
   premiere: "https://www.youtube.com/embed/live_stream?channel=REPLACE_CHANNEL",
 };
 
@@ -71,16 +69,31 @@ const GRID_COLS = 8, GRID_ROWS = 7;          // 7 left + 6 top + 7 right = 20 bo
 const gridW = GRID_COLS * RW + (GRID_COLS - 1) * AISLE;
 const gridH = GRID_ROWS * RH + (GRID_ROWS - 1) * AISLE;
 
-const VOTE_H = 9, GALLERY_H = 9, ENTRY_H = 11;
-const MAP_W = MARGIN * 2 + gridW;
+const VOTE_H = 10, GALLERY_H = 10, ENTRY_H = 11;
+const BANNER_H = 2;                        // booth name banner sits in the aisle below each room
+// even width so centred things land on an exact tile boundary instead of half a tile off
+const MAP_W = (MARGIN * 2 + gridW) + ((MARGIN * 2 + gridW) % 2);
 const VOTE_Y = MARGIN;
 const GRID_Y = VOTE_Y + VOTE_H;
-const GALLERY_Y = GRID_Y + gridH;
+// +BANNER_H+1: the bottom booth row's name banners live below the rooms, and would
+// otherwise print straight on top of the gallery band sign
+const GALLERY_Y = GRID_Y + gridH + BANNER_H + 1;
 const ENTRY_Y = GALLERY_Y + GALLERY_H;
 const MAP_H = ENTRY_Y + ENTRY_H + MARGIN;
 
 const colX = (c) => MARGIN + c * hpitch;
 const rowY = (r) => GRID_Y + r * vpitch;
+
+// Everything that should read as "centred" is placed through these, so nothing is
+// eyeballed against a column index. Odd map widths cost at most half a tile.
+const centerX = (w) => Math.round((MAP_W - w) / 2);
+// left/right x for a symmetric pair of w-wide things separated by `gap` tiles
+const centerPair = (w, gap) => { const x = centerX(2 * w + gap); return [x, x + w + gap]; };
+
+const KIOSK_W = 4, KIOSK_GAP = 22;      // gallery + vote counters, one pair per band
+const [KIOSK_L, KIOSK_R] = centerPair(KIOSK_W, KIOSK_GAP);
+const STAGE_W = 10;
+const STAGE_X = centerX(STAGE_W);
 
 // Horseshoe slot for booth index 0..19 (team 01..20), plus which wall holds the door.
 // 0-6 -> left column bottom-to-top | 7-12 -> top row left-to-right | 13-19 -> right column top-to-bottom
@@ -207,24 +220,25 @@ function kiosk(name, ox, oy, label, url, extra = []) {
 {
   const y = VOTE_Y;
   add(text("sign-vote", MARGIN, y, gridW, "🗳️ VOTE — walk up to a counter and press SPACE", 16));
-  kiosk("vote-personal", colX(1) + 2, y + 1, "⭐ PERSONAL People's Choice", URLS.personalVote);
-  kiosk("vote-team", colX(5) + 2, y + 1, "🏆 TEAM People's Choice", URLS.teamVote,
-    [prop("openWebsiteAllowApi", true, "bool")]);
+  // Both ballots read WA.player.* for the uuid audit trail, so both need the iframe API.
+  // Without it the page stalls for 2.5s and falls back to a localStorage id.
+  const allowApi = [prop("openWebsiteAllowApi", true, "bool")];
+  kiosk("vote-personal", KIOSK_L, y + BANNER_H, "⭐ PERSONAL People's Choice", URLS.personalVote, allowApi);
+  kiosk("vote-team", KIOSK_R, y + BANNER_H, "🏆 TEAM People's Choice", URLS.teamVote, allowApi);
 }
 
 // gallery band (below the horseshoe — first stop after the entrance)
 {
   const y = GALLERY_Y;
   add(text("sign-gallery", MARGIN, y, gridW, "🖼️ GALLERY — browse every project before you vote", 16));
-  kiosk("gallery-personal", colX(1) + 2, y + 1, "🖼️ PERSONAL projects (78)", URLS.personalGallery);
-  kiosk("gallery-team", colX(5) + 2, y + 1, "🏗️ TEAM projects (20)", URLS.teamGallery);
+  kiosk("gallery-personal", KIOSK_L, y + BANNER_H, "🖼️ PERSONAL projects (78)", URLS.personalGallery);
+  kiosk("gallery-team", KIOSK_R, y + BANNER_H, "🏗️ TEAM projects (20)", URLS.teamGallery);
 }
 
 // ---------- main stage: centred in the plaza inside the horseshoe ----------
 {
-  const plazaX = colX(1), plazaW = colX(GRID_COLS - 1) - colX(1);
   const plazaY = rowY(1), plazaH = rowY(GRID_ROWS) - rowY(1);
-  const sx = plazaX + Math.floor(plazaW / 2) - 5;
+  const sx = STAGE_X;
   const sy = plazaY + Math.floor(plazaH / 2) - 3;
   add(text("sign-stage", sx - 2, sy - 2, 16, "🎬 MAIN STAGE — reels + awards", 18));
   // big board behind the stage room, screens on the reel side, counters along the front
@@ -256,7 +270,7 @@ function kiosk(name, ox, oy, label, url, extra = []) {
 
 // spawn strip at the very bottom, centred
 const START_GID = 1; // WA reads the layer named "start"; any nonzero tile marks a spawn point
-const spawnX = Math.floor(MAP_W / 2) - 2;
+const spawnX = centerX(4);
 const spawnY = MAP_H - MARGIN - 1;
 for (let x = spawnX; x < spawnX + 4; x++) startL[idx(x, spawnY)] = START_GID;
 
