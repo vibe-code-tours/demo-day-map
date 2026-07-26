@@ -48,7 +48,7 @@ const URLS = {
 
 // ---------- geometry ----------
 const TS = 32;
-const CARPET = T.carpet, CHAIRS = T.chairs, WALL = T.wallbox, PLANT = T.plant;
+const CHAIRS = T.chairs, WALL = T.wallbox, PLANT = T.plant;
 // NOTE: cc-templates.json also has a `desk` block, but its gids (12245+) fall in a gap
 // between tilesets — nothing owns them, so they render as empty and WA rejects them.
 // These gids were read off the 19_Hospital_32x32 sheet (firstgid 1037) and are all in range.
@@ -64,6 +64,10 @@ const RW = WALL[0].length, RH = WALL.length; // room 8 x 9
 const AISLE = 3, MARGIN = 4;
 const hpitch = RW + AISLE, vpitch = RH + AISLE;
 const LOGO_FIRSTGID = 20001;
+const WA_EXT_FIRSTGID = LOGO_FIRSTGID + LOGO.cols * LOGO.rows + 1;  // 20022
+// Grass floor from WA_Exterior (row 0, col 3). The old CARPET gid 218 was blue-gray
+// and looked like an indoor floor — wrong for an open-air venue.
+const GRASS = WA_EXT_FIRSTGID + 3;  // 20025
 
 const GRID_COLS = 8, GRID_ROWS = 7;          // 7 left + 6 top + 7 right = 20 booths
 const gridW = GRID_COLS * RW + (GRID_COLS - 1) * AISLE;
@@ -104,7 +108,7 @@ function slotFor(i) {
 }
 
 // ---------- tile-layer buffers ----------
-const floor = new Array(MAP_W * MAP_H).fill(CARPET);
+const floor = new Array(MAP_W * MAP_H).fill(GRASS);
 const walls = new Array(MAP_W * MAP_H).fill(0);
 const furniture = new Array(MAP_W * MAP_H).fill(0);
 const collide = new Array(MAP_W * MAP_H).fill(0);
@@ -280,8 +284,15 @@ for (let x = spawnX; x < spawnX + 4; x++) startL[idx(x, spawnY)] = START_GID;
 // the collisions layer is invisible in WA. Removing it so the venue reads
 // as an open field.
 
-// ---------- tilesets (cc + logo atlas) ----------
+// ---------- tilesets (cc + WA exterior + logo atlas) ----------
+// WA_Exterior provides the grass floor; it was not in cc-tilesets.json.
+const waExtCols = 25, waExtRows = 34;
 const tilesets = [...ccTilesets, {
+  firstgid: WA_EXT_FIRSTGID, name: "WA_Exterior", image: "tilesets/WA_Exterior.png",
+  imagewidth: waExtCols * 32, imageheight: waExtRows * 32,
+  tilewidth: 32, tileheight: 32, columns: waExtCols,
+  tilecount: waExtCols * waExtRows, margin: 0, spacing: 0,
+}, {
   firstgid: LOGO_FIRSTGID, name: "logos", image: "logo-atlas.png",
   imagewidth: LOGO.cols * LOGO.cell, imageheight: LOGO.rows * LOGO.cell,
   tilewidth: LOGO.cell, tileheight: LOGO.cell, columns: LOGO.cols,
